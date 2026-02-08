@@ -75,7 +75,7 @@ public class EnemyAI : MonoBehaviour
 
     void ChasePlayer()
     {
-        Vector2 direction = ((Vector2)playerTransform.position - (Vector2)transform.position).normalized;
+        Vector2 direction = (playerTransform.position - transform.position).normalized; // Posible casting Vector2
         rb.linearVelocity = direction * (speed * 1.5f); // Más rápido al perseguir
 
         UpdateAnimation(direction);
@@ -85,8 +85,8 @@ public class EnemyAI : MonoBehaviour
     {
         if (animator == null) return;
 
-        animator.SetFloat("Horizontal", dir.x);
-        animator.SetFloat("Vertical", dir.y);
+        animator.SetFloat("horizontal", dir.x);
+        animator.SetFloat("vertical", dir.y);
         animator.SetBool("isMoving", true);
 
         // Flip automático según dirección X
