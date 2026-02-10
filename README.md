@@ -15,9 +15,8 @@ $(Your Game Description)
 ### Controls
 
 Keyboard:
- - $(Game Control 01)
- - $(Game Control 02)
- - $(Game Control 03)
+ - WASD : Movement
+ - Arrows : Movement
 
 ### Screenshots
 
@@ -25,9 +24,10 @@ _TODO: Show your game to the world, animated GIFs recommended!._
 
 ### Developers
 
- - $(Developer 01) - $(Role/Tasks Developed)
- - $(Developer 02) - $(Role/Tasks Developed)
- - $(Developer 03) - $(Role/Tasks Developed)
+ - David Arreciado - Programmer/
+ - Nil Brillarelli - Programmer/Assets research
+ - Helena Fernández  - Programmer/Assets research
+ - Jon Roviras    - Programmer/
 
 ### Links
 
@@ -41,4 +41,4 @@ This game sources are licensed under MIT license. Check [LICENSE](LICENSE) for f
 
 $(Additional Licenses)
 
-*Copyright (c) $(Year) $(Developers Names)*
+*Copyright (c) 2026 David, Nil, Helena, Jon*
