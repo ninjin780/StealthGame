@@ -233,6 +233,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: TX Player Shadow
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 68
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6dc25b47b0c14f4aa3f0e9c114f957b
+      internalID: -1060520889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -250,6 +272,7 @@ TextureImporter:
       CatBack: 21300002
       CatFront: 21300000
       CatSide: 21300004
+      TX Player Shadow: -1060520889
       TX Shadow Player: 21300006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

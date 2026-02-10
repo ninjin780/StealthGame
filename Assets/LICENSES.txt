@@ -1,1 +1,7 @@
 Place here all the licenses for your assets:
+
+PlayerMovement Sound Effect:
+
+Freesound
+https://creativecommons.org/publicdomain/zero/1.0/
+
