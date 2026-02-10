@@ -1,9 +1,11 @@
+using System.Drawing;
 using UnityEngine;
+using Color = UnityEngine.Color;
 
 public class EnemyAI : MonoBehaviour
 {
     [Header("Configuración de Movimiento")]
-    [SerializeField] private float speed = 2.0f;
+    [SerializeField] private float speed = 2.5f;
     [SerializeField] private float patrolDistance = 3.0f; // DIstancia que se mueve desde el spawn
 
     [Header("Detección")]
@@ -12,6 +14,8 @@ public class EnemyAI : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
+    private SpriteRenderer alarmRenderer;
+    private Color enemyColor;
     private Vector2 startPosition;
     private Vector2 targetPosition;
     private Transform playerTransform;
@@ -21,6 +25,8 @@ public class EnemyAI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        alarmRenderer = GetComponent<SpriteRenderer>();
+        enemyColor = alarmRenderer.color;
         startPosition = transform.position;
         // El primer punto de patrulla será a la derecha
         targetPosition = startPosition + Vector2.right * patrolDistance;
@@ -65,10 +71,12 @@ public class EnemyAI : MonoBehaviour
         if (hit != null)
         {
             playerTransform = hit.transform;
+            alarmRenderer.color = Color.red;
             isChasing = true;
         }
         else
         {
+            alarmRenderer.color = enemyColor;
             isChasing = false;
         }
     }
