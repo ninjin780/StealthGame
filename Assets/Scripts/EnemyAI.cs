@@ -28,6 +28,7 @@ public class EnemyAI : MonoBehaviour
 
     private Transform playerTransform;
     private bool isChasing = false;
+    private Vector2 lookDir = Vector2.right;
 
     void Start()
     {
@@ -40,6 +41,9 @@ public class EnemyAI : MonoBehaviour
         startPosition = transform.position;
         targetPosition = startPosition + Vector2.right * patrolDistance;
         if (!cone) cone = GetComponentInChildren<VisionConeRenderer>();
+        Vector2 initialDir = (targetPosition - (Vector2)transform.position);
+        if (initialDir.sqrMagnitude > 0.001f)
+            lookDir = initialDir.normalized;
     }
 
     void FixedUpdate()
@@ -48,8 +52,15 @@ public class EnemyAI : MonoBehaviour
 
         if (isChasing) ChasePlayer();
         else Patrol();
-    }
+        if (rb.linearVelocity.sqrMagnitude > 0.001f)
+        {
+            lookDir = rb.linearVelocity.normalized;
 
+            if (cone)
+                cone.transform.right = new Vector3(lookDir.x, lookDir.y, 0f);
+        }
+
+    }
 
     void Patrol()
     {
@@ -112,9 +123,9 @@ public class EnemyAI : MonoBehaviour
     bool PlayerInAngle(Transform player)
     {
         Vector2 toPlayer = (player.position - transform.position);
-        Vector2 forward = (transform.localScale.x >= 0f) ? Vector2.right : Vector2.left;
+        if (toPlayer.sqrMagnitude < 0.0001f) return true;
 
-        float angle = Vector2.Angle(forward, toPlayer);
+        float angle = Vector2.Angle(lookDir, toPlayer);
         return angle <= (fov * 0.5f);
     }
 
@@ -149,7 +160,7 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, viewDistance);
 
-        Vector2 forward = (transform.localScale.x >= 0f) ? Vector2.right : Vector2.left;
+        Vector2 forward = lookDir.sqrMagnitude > 0.001f ? lookDir : Vector2.right;
         float half = fov * 0.5f;
 
         Vector2 leftDir = Rotate2D(forward, -half);
