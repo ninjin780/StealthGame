@@ -1740,7 +1740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -44.31505, y: -59.339996}
+  m_AnchoredPosition: {x: -44.315063, y: -59.339966}
   m_SizeDelta: {x: 227.96997, y: 33.320007}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &615651457
@@ -3916,8 +3916,8 @@ MonoBehaviour:
   viewDistance: 1
   fov: 90
   segments: 40
-  idleColor: {r: 0, g: 1, b: 0, a: 0.25}
-  alertColor: {r: 1, g: 0, b: 0, a: 0.25}
+  idleColor: {r: 0.23933774, g: 0.78579503, b: 0.93962264, a: 0.25}
+  alertColor: {r: 0, g: 0.17556596, b: 0.9547169, a: 0.25}
 --- !u!1001 &1885528661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5640,7 +5640,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   alarmRenderer: {fileID: 0}
-  alertColor: {r: 1, g: 0, b: 0, a: 1}
+  alertColor: {r: 0, g: 0, b: 0.8039216, a: 1}
   cone: {fileID: 0}
 --- !u!212 &2042200946
 SpriteRenderer:
@@ -5692,7 +5692,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300144, guid: 29c9cded5e558164aaf8c9bf08aa1510, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9921569, g: 0.9607844, b: 0.9019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
