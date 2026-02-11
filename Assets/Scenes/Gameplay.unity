@@ -181,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 856492845411431481, guid: 5e948c82e05df314ba31e105564f48f8,
         type: 3}
       propertyPath: m_Name
-      value: Sign Right (1)
+      value: SignRight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -294,7 +294,7 @@ PrefabInstance:
     - target: {fileID: 2737906932616070179, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
       propertyPath: m_Name
-      value: Pot C (2)
+      value: Pot
       objectReference: {fileID: 0}
     - target: {fileID: 3725900184232288557, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
@@ -734,7 +734,7 @@ PrefabInstance:
     - target: {fileID: 8166958583679662124, guid: 010db3047ac797349bb9dd913f407bfa,
         type: 3}
       propertyPath: m_Name
-      value: Bench Left (1)
+      value: BenchLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -990,7 +990,7 @@ PrefabInstance:
     - target: {fileID: 2737906932616070179, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
       propertyPath: m_Name
-      value: Pot C (5)
+      value: Pot
       objectReference: {fileID: 0}
     - target: {fileID: 3725900184232288557, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
@@ -1619,6 +1619,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1905331728}
     m_Modifications:
+    - target: {fileID: 5997224648939805555, guid: 248490842bf9a0a4a8e911a17111d771,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.6260898
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997224648939805555, guid: 248490842bf9a0a4a8e911a17111d771,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.1222
+      objectReference: {fileID: 0}
     - target: {fileID: 7947911505737750448, guid: 248490842bf9a0a4a8e911a17111d771,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1673,6 +1683,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Altar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505737750455, guid: 248490842bf9a0a4a8e911a17111d771,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947911505844789836, guid: 248490842bf9a0a4a8e911a17111d771,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2202,7 +2222,7 @@ GameObject:
   - component: {fileID: 1004799314}
   - component: {fileID: 1004799315}
   m_Layer: 0
-  m_Name: TX Player Shadow
+  m_Name: PlayerShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3371,7 +3391,7 @@ PrefabInstance:
     - target: {fileID: 2737906932616070179, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
       propertyPath: m_Name
-      value: Pot C (3)
+      value: Pot
       objectReference: {fileID: 0}
     - target: {fileID: 3725900184232288557, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
@@ -5430,7 +5450,7 @@ PrefabInstance:
     - target: {fileID: 2737906932616070179, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
       propertyPath: m_Name
-      value: Pot C (4)
+      value: Pot
       objectReference: {fileID: 0}
     - target: {fileID: 3725900184232288557, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
@@ -5962,7 +5982,7 @@ PrefabInstance:
     - target: {fileID: 2737906932616070179, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
       propertyPath: m_Name
-      value: Pot C (1)
+      value: Pot
       objectReference: {fileID: 0}
     - target: {fileID: 3725900184232288557, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
@@ -6234,7 +6254,7 @@ PrefabInstance:
     - target: {fileID: 856492845411431481, guid: 5e948c82e05df314ba31e105564f48f8,
         type: 3}
       propertyPath: m_Name
-      value: Sign Right
+      value: SignRight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6382,7 +6402,7 @@ PrefabInstance:
     - target: {fileID: 8166958583679662124, guid: 010db3047ac797349bb9dd913f407bfa,
         type: 3}
       propertyPath: m_Name
-      value: Bench Left
+      value: BenchLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6406,7 +6426,7 @@ PrefabInstance:
     - target: {fileID: 2737906932616070179, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
       propertyPath: m_Name
-      value: Pot C
+      value: Pot
       objectReference: {fileID: 0}
     - target: {fileID: 3725900184232288557, guid: a9fd83d00534c9145869107afd1d0d4f,
         type: 3}
