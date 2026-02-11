@@ -13,3 +13,19 @@ Extension Asset
 https://unity.com/es/legal/as-terms
 https://support.unity.com/hc/en-us/articles/208601846-Asset-Store-licenses-Extension-Assets-Single-and-Multi-Entity-assets
 
+Daydream font (Personal License)
+
+Created by Rahul / DoubleGum
+
+License – Personal Use Only
+
+You are allowed to:
+- Use this font in personal, non-commercial projects
+- Use it for educational purposes
+- Share screenshots or videos of projects featuring the font
+
+You are NOT allowed to:
+- Use this font in commercial projects
+- Sell, redistribute, or modify and resell the font file
+- Include the font in asset packs, templates, or bundles
+- Upload the font to generative AI platforms or NFT projects
