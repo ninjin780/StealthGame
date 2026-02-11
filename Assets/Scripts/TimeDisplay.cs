@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerManager : MonoBehaviour
+public class TimeDisplay : MonoBehaviour
 {
     public float startTime = 0f;
     private Text timeText;

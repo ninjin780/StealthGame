@@ -5,7 +5,7 @@ public class DistanceDisplay : MonoBehaviour
 {
     public float StartDistance = 0f;
     private Text distanceText;
-    private static float CurrentTime { get; set; }
+    public static float CurrentDistance { get; set; }
 
     void Start()
     {
@@ -14,7 +14,20 @@ public class DistanceDisplay : MonoBehaviour
 
     void FixedUpdate()
     {
+        UpdateDistanceText();
+    }
 
+    private void UpdateDistanceText()
+    {
+        distanceText.text = "Distance: " + Mathf.CeilToInt(CurrentDistance) + " m";
+    }
+
+    private void OnMove()
+    {
+        while (true)
+        {
+            CurrentDistance += 1f;
+        }
     }
 }
 
