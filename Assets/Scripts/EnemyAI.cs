@@ -1,4 +1,3 @@
-using System.Drawing;
 using UnityEngine;
 using Color = UnityEngine.Color;
 
@@ -6,53 +5,68 @@ public class EnemyAI : MonoBehaviour
 {
     [Header("Configuración de Movimiento")]
     [SerializeField] private float speed = 2.5f;
-    [SerializeField] private float patrolDistance = 3.0f; // DIstancia que se mueve desde el spawn
+    [SerializeField] private float patrolDistance = 3.0f;
 
-    [Header("Detección")]
-    [SerializeField] private float detectionRange = 4.0f;
-    [SerializeField] private LayerMask playerLayer; // Asigna la capa "Player" aquí
+    [Header("Detección (Cono de visión)")]
+    [SerializeField] private float viewDistance = 4.0f;          
+    [Range(0f, 360f)]
+    [SerializeField] private float fov = 90.0f;                  
+    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask obstacleLayer;            
+
+    [Header("Feedback")]
+    [SerializeField] private SpriteRenderer alarmRenderer;       
+    [SerializeField] private Color alertColor = Color.red;
+    [SerializeField] private VisionConeRenderer cone;
 
     private Rigidbody2D rb;
     private Animator animator;
-    private SpriteRenderer alarmRenderer;
+
     private Color enemyColor;
     private Vector2 startPosition;
     private Vector2 targetPosition;
+
     private Transform playerTransform;
     private bool isChasing = false;
+    private Vector2 lookDir = Vector2.right;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        alarmRenderer = GetComponent<SpriteRenderer>();
+
+        if (!alarmRenderer) alarmRenderer = GetComponent<SpriteRenderer>();
         enemyColor = alarmRenderer.color;
+
         startPosition = transform.position;
-        // El primer punto de patrulla será a la derecha
         targetPosition = startPosition + Vector2.right * patrolDistance;
+        if (!cone) cone = GetComponentInChildren<VisionConeRenderer>();
+        Vector2 initialDir = (targetPosition - (Vector2)transform.position);
+        if (initialDir.sqrMagnitude > 0.001f)
+            lookDir = initialDir.normalized;
     }
 
     void FixedUpdate()
     {
-        DetectPlayer();
+        DetectPlayerCone();
 
-        if (isChasing)
+        if (isChasing) ChasePlayer();
+        else Patrol();
+        if (rb.linearVelocity.sqrMagnitude > 0.001f)
         {
-            ChasePlayer();
+            lookDir = rb.linearVelocity.normalized;
+
+            if (cone)
+                cone.transform.right = new Vector3(lookDir.x, lookDir.y, 0f);
         }
-        else
-        {
-            Patrol();
-        }
+
     }
 
     void Patrol()
     {
-        // Moverse hacia el punto objetivo
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
         rb.linearVelocity = direction * speed;
 
-        // Si llega al objetivo cambia
         if (Vector2.Distance(transform.position, targetPosition) < 0.2f)
         {
             targetPosition = (targetPosition == startPosition)
@@ -63,30 +77,70 @@ public class EnemyAI : MonoBehaviour
         UpdateAnimation(direction);
     }
 
-    void DetectPlayer()
-    {
-        // El coso circular de detectar
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, detectionRange, playerLayer);
-
-        if (hit != null)
-        {
-            playerTransform = hit.transform;
-            alarmRenderer.color = Color.red;
-            isChasing = true;
-        }
-        else
-        {
-            alarmRenderer.color = enemyColor;
-            isChasing = false;
-        }
-    }
-
     void ChasePlayer()
     {
-        Vector2 direction = (playerTransform.position - transform.position).normalized; // Posible casting Vector2
-        rb.linearVelocity = direction * (speed * 1.5f); // Más rápido al perseguir
+        if (!playerTransform)
+        {
+            StopChasing();
+            return;
+        }
+
+        Vector2 direction = (playerTransform.position - transform.position).normalized;
+        rb.linearVelocity = direction * (speed * 1.5f);
 
         UpdateAnimation(direction);
+    }
+
+    void StopChasing()
+    {
+        alarmRenderer.color = enemyColor;
+        isChasing = false;
+        playerTransform = null;
+        if (cone) cone.SetAlert(false);
+    }
+
+    void DetectPlayerCone()
+    {
+        Transform candidate = PlayerInRange();
+        if (!candidate) { StopChasing(); return; }
+
+        if (!PlayerInAngle(candidate)) { StopChasing(); return; }
+
+        if (!PlayerVisible(candidate)) { StopChasing(); return; }
+
+        playerTransform = candidate;
+        alarmRenderer.color = alertColor;
+        isChasing = true;
+        if (cone) cone.SetAlert(true);
+    }
+
+    Transform PlayerInRange()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, viewDistance, playerLayer);
+        return hit ? hit.transform : null;
+    }
+
+    bool PlayerInAngle(Transform player)
+    {
+        Vector2 toPlayer = (player.position - transform.position);
+        if (toPlayer.sqrMagnitude < 0.0001f) return true;
+
+        float angle = Vector2.Angle(lookDir, toPlayer);
+        return angle <= (fov * 0.5f);
+    }
+
+    bool PlayerVisible(Transform player)
+    {
+        Vector2 origin = transform.position;
+        Vector2 toPlayer = (player.position - transform.position);
+        float dist = toPlayer.magnitude;
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, toPlayer.normalized, dist, obstacleLayer | playerLayer);
+
+        if (!hit.collider) return false;
+
+        int hitLayerBit = 1 << hit.collider.gameObject.layer;
+        return (hitLayerBit & playerLayer) != 0;
     }
 
     void UpdateAnimation(Vector2 dir)
@@ -97,19 +151,31 @@ public class EnemyAI : MonoBehaviour
         animator.SetFloat("vertical", dir.y);
         animator.SetBool("isMoving", true);
 
-        // Flip automático según dirección X
         if (Mathf.Abs(dir.x) > 0.1f)
-        {
             transform.localScale = new Vector3(Mathf.Sign(dir.x), 1, 1);
-        }
     }
 
-    // Para ver el rango de detección en el editor (solo visual)
     private void OnDrawGizmosSelected()
     {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, viewDistance);
+
+        Vector2 forward = lookDir.sqrMagnitude > 0.001f ? lookDir : Vector2.right;
+        float half = fov * 0.5f;
+
+        Vector2 leftDir = Rotate2D(forward, -half);
+        Vector2 rightDir = Rotate2D(forward, half);
+
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRange);
-        Gizmos.color = Color.blue;
-        if (Application.isPlaying) Gizmos.DrawLine(startPosition, startPosition + Vector2.right * patrolDistance);
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + leftDir * viewDistance);
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + rightDir * viewDistance);
+    }
+
+    private Vector2 Rotate2D(Vector2 v, float degrees)
+    {
+        float rad = degrees * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(rad);
+        float sin = Mathf.Sin(rad);
+        return new Vector2(v.x * cos - v.y * sin, v.x * sin + v.y * cos);
     }
 }

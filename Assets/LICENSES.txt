@@ -5,3 +5,11 @@ PlayerMovement Sound Effect:
 Freesound
 https://creativecommons.org/publicdomain/zero/1.0/
 
+Tileset:
+
+Standard Unity Asset Store EULA
+Extension Asset
+
+https://unity.com/es/legal/as-terms
+https://support.unity.com/hc/en-us/articles/208601846-Asset-Store-licenses-Extension-Assets-Single-and-Multi-Entity-assets
+
