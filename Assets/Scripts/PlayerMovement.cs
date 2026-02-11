@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
+    public AudioSource MoveSound;
 
     void Start()
     {
@@ -30,10 +31,19 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("vertical", moveInput.y);
             animator.SetBool("isMoving", true);
 
+            if (!MoveSound.isPlaying)
+            {
+                MoveSound.Play();
+            }
+
         }
         else
         {
             animator.SetBool("isMoving", false);
+            if (MoveSound.isPlaying)
+            {
+                MoveSound.Stop();
+            }
         }
     }
 
