@@ -17,7 +17,8 @@ public class TimeDisplay : MonoBehaviour
     void FixedUpdate()
     {
         CurrentTime += Time.deltaTime;
-        PlayerPrefs.SetFloat("Time", CurrentTime);
+
+        if (PlayerPrefs.GetFloat("Time") == 0) PlayerPrefs.SetFloat("Time", CurrentTime);
         UpdateTimerText();
     }
 

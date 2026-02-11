@@ -14,8 +14,7 @@ public class ScoreDisplay : MonoBehaviour
         highestScoreTime = PlayerPrefs.GetFloat("Time") > TimeDisplay.CurrentTime ? TimeDisplay.CurrentTime : PlayerPrefs.GetFloat("Time");
         PlayerPrefs.SetFloat("Time", highestScoreTime);
 
-        highestScoreDistance = PlayerPrefs.GetFloat("Distance") > DistanceDisplay.CurrentDistance ? DistanceDisplay.CurrentDistance : PlayerPrefs.GetFloat("Distance");
-        PlayerPrefs.SetFloat("Distance", highestScoreDistance);
+        highestScoreDistance = DistanceDisplay.CurrentDistance;
         ChangeText();
     }
 
@@ -23,7 +22,7 @@ public class ScoreDisplay : MonoBehaviour
     {
         if (textBox != null)
         {
-            textBox.text = "Your highest score was " + highestScoreTime.ToString() + " seconds with a distance of " + highestScoreDistance.ToString() + " meters, keep going!";
+            textBox.text = "Your highest score was " + Mathf.CeilToInt(highestScoreTime).ToString() + " seconds, this run was " + Mathf.CeilToInt(TimeDisplay.CurrentTime).ToString() + " seconds with a distance of " + Mathf.CeilToInt(highestScoreDistance).ToString() + " meters, keep going!";
         }
     }
 }
