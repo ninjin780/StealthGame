@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Color = UnityEngine.Color;
 
-public class EnemyAI : MonoBehaviour
+public class Enemy2AI : MonoBehaviour
 {
     [Header("Configuración de Movimiento")]
     [SerializeField] private float speed = 2.5f;
@@ -20,6 +20,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private Color alertColor = Color.red;
     [SerializeField] private VisionConeRenderer cone;
 
+    [Header("Barrido del Cono (Idle)")]
+    [SerializeField] public float SweepSpeedDegPerSec = 90f;
+    [SerializeField] public float SweepAngle = 180f; // total sweep range
+    [SerializeField] public float SweepPause = 0.15f;
+
+    private float sweepCenterAngleDeg;
+    private float sweepOffsetDeg;
+    private int sweepDir = 1;
+    private float sweepPauseTimer = 0f;
+
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -35,6 +45,8 @@ public class EnemyAI : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        sweepCenterAngleDeg = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        sweepOffsetDeg = 0f;
 
         if (!alarmRenderer) alarmRenderer = GetComponent<SpriteRenderer>();
         enemyColor = alarmRenderer.color;
@@ -51,31 +63,68 @@ public class EnemyAI : MonoBehaviour
     {
         DetectPlayerCone();
 
-        if (isChasing) ChasePlayer();
-        else Patrol();
-        if (rb.linearVelocity.sqrMagnitude > 0.001f)
+        if (isChasing)
         {
-            lookDir = rb.linearVelocity.normalized;
-
-            if (cone)
-                cone.transform.right = new Vector3(lookDir.x, lookDir.y, 0f);
+            ChasePlayer();
+            // lookDir se basa en velocidad al perseguir (como ya haces)
+            if (rb.linearVelocity.sqrMagnitude > 0.001f)
+                lookDir = rb.linearVelocity.normalized;
+        }
+        else
+        {
+            // No patrullar: quedarse quieto y barrer cono
+            rb.linearVelocity = Vector2.zero;
+            UpdateIdleSweep();
         }
 
+        // Apunta el cono usando lookDir SIEMPRE
+        if (cone)
+            cone.transform.right = new Vector3(lookDir.x, lookDir.y, 0f);
+
+        // Animación: si no se mueve, idle
+        if (!isChasing)
+        {
+            if (animator != null)
+            {
+                animator.SetBool("isMoving", false);
+                animator.SetFloat("horizontal", lookDir.x);
+                animator.SetFloat("vertical", lookDir.y);
+            }
+        }
     }
 
-    void Patrol()
+    void UpdateIdleSweep()
     {
-        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        rb.linearVelocity = direction * speed;
-
-        if (Vector2.Distance(transform.position, targetPosition) < 0.2f)
+        // Pausa en los extremos del barrido
+        if (sweepPauseTimer > 0f)
         {
-            targetPosition = (targetPosition == startPosition)
-                ? startPosition + Vector2.right * patrolDistance
-                : startPosition;
+            sweepPauseTimer -= Time.fixedDeltaTime;
+            return;
         }
 
-        UpdateAnimation(direction);
+        float half = SweepAngle * 0.5f;
+
+        // Avanza el offset
+        sweepOffsetDeg += sweepDir * SweepSpeedDegPerSec * Time.fixedDeltaTime;
+
+        // Si llega a un extremo, clampa y cambia dirección + pausa
+        if (sweepOffsetDeg > half)
+        {
+            sweepOffsetDeg = half;
+            sweepDir = -1;
+            sweepPauseTimer = SweepPause;
+        }
+        else if (sweepOffsetDeg < -half)
+        {
+            sweepOffsetDeg = -half;
+            sweepDir = 1;
+            sweepPauseTimer = SweepPause;
+        }
+
+        float angleDeg = sweepCenterAngleDeg + sweepOffsetDeg;
+        float rad = angleDeg * Mathf.Deg2Rad;
+
+        lookDir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
     }
 
     void ChasePlayer()
