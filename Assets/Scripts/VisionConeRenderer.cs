@@ -4,13 +4,13 @@ using UnityEngine;
 public class VisionConeRenderer : MonoBehaviour
 {
     [Header("Shape")]
-    public float viewDistance = 4f;
-    [Range(0f, 360f)] public float fov = 90f;
-    public int segments = 40;
+    public float ViewDistance = 4f;
+    [Range(0f, 360f)] public float Fov = 90f;
+    public int Segments = 40;
 
     [Header("Colors")]
-    public Color idleColor = new Color(0f, 1f, 0f, 0.25f);
-    public Color alertColor = new Color(1f, 0f, 0f, 0.25f);
+    public Color IdleColor = new Color(0f, 1f, 0f, 0.25f);
+    public Color AlertColor = new Color(1f, 0f, 0f, 0.25f);
 
     private Mesh mesh;
     private MeshRenderer meshRenderer;
@@ -26,24 +26,24 @@ public class VisionConeRenderer : MonoBehaviour
 
     public void DrawCone()
     {
-        int vertexCount = segments + 2;
+        int vertexCount = Segments + 2;
         Vector3[] vertices = new Vector3[vertexCount];
-        int[] triangles = new int[segments * 3];
+        int[] triangles = new int[Segments * 3];
 
         vertices[0] = Vector3.zero;
 
-        float half = fov * 0.5f;
+        float half = Fov * 0.5f;
 
-        for (int i = 0; i <= segments; i++)
+        for (int i = 0; i <= Segments; i++)
         {
-            float angle = Mathf.Lerp(-half, half, i / (float)segments);
+            float angle = Mathf.Lerp(-half, half, i / (float)Segments);
             float rad = angle * Mathf.Deg2Rad;
             Vector3 dir = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad), 0);
-            vertices[i + 1] = dir * viewDistance;
+            vertices[i + 1] = dir * ViewDistance;
         }
 
         int t = 0;
-        for (int i = 0; i < segments; i++)
+        for (int i = 0; i < Segments; i++)
         {
             triangles[t++] = 0;
             triangles[t++] = i + 1;
@@ -59,6 +59,6 @@ public class VisionConeRenderer : MonoBehaviour
     public void SetAlert(bool alert)
     {
         if (meshRenderer != null)
-            meshRenderer.material.color = alert ? alertColor : idleColor;
+            meshRenderer.material.color = alert ? AlertColor : IdleColor;
     }
 }

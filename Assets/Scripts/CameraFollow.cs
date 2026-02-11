@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;
-    public Vector3 offset = new Vector3(0, 0, -10);
+    public Transform Target;
+    public Vector3 Offset = new Vector3(0, 0, -10);
 
     void LateUpdate()
     {
-        if (target != null)
+        if (Target != null)
         {
-            transform.position = target.position + offset;
+            transform.position = Target.position + Offset;
         }
     }
 }
