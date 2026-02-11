@@ -21,13 +21,5 @@ public class DistanceDisplay : MonoBehaviour
     {
         distanceText.text = "Distance: " + Mathf.CeilToInt(CurrentDistance) + " m";
     }
-
-    private void OnMove()
-    {
-        while (true)
-        {
-            CurrentDistance += 1f;
-        }
-    }
 }
 

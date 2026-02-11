@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4511183612104516003}
   - component: {fileID: 7481996662406946686}
   m_Layer: 0
-  m_Name: TX Shadow Well
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

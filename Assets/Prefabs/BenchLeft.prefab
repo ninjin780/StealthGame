@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 6089618142441511790}
   - component: {fileID: 4221172453767004464}
   m_Layer: 0
-  m_Name: TX Shadow Stone Bench W
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

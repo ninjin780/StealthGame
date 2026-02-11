@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8647768576537185657}
   - component: {fileID: 5540470744307838778}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

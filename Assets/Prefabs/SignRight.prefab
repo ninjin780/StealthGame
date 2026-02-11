@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 1731083939699101272}
   - component: {fileID: 8564989120925381913}
   m_Layer: 0
-  m_Name: TX Shadow Road Sign E
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
