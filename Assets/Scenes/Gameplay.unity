@@ -4634,10 +4634,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   speed: 2.5
   patrolDistance: 6
-  detectionRange: 3
+  viewDistance: 4
+  fov: 90
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  alarmRenderer: {fileID: 0}
+  alertColor: {r: 1, g: 0, b: 0, a: 1}
+  cone: {fileID: 0}
 --- !u!212 &2042200946
 SpriteRenderer:
   serializedVersion: 2
