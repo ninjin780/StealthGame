@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5181484230316312758}
   - component: {fileID: 8509513816980224349}
   m_Layer: 0
-  m_Name: Pot C
+  m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
