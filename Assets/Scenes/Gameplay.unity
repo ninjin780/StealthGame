@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DistanceDisplay
   StartDistance: 0
+  player: {fileID: 1079995531}
 --- !u!1001 &16137765
 PrefabInstance:
   m_ObjectHideFlags: 0
