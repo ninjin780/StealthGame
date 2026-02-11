@@ -2036,7 +2036,7 @@ GameObject:
   - component: {fileID: 3193161175839699906}
   - component: {fileID: 8439735674707332383}
   m_Layer: 0
-  m_Name: TX Shadow Well
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2423,7 +2423,7 @@ GameObject:
   - component: {fileID: 1579857427424609039}
   - component: {fileID: 6066456616377473619}
   m_Layer: 0
-  m_Name: Barrel (1)
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2536,7 +2536,7 @@ GameObject:
   - component: {fileID: 1266014481466293696}
   - component: {fileID: 1266014481466293697}
   m_Layer: 20
-  m_Name: TreeB (3)
+  m_Name: TreeB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2588,7 +2588,7 @@ GameObject:
   - component: {fileID: 8191829047695268303}
   - component: {fileID: 4634398435736479780}
   m_Layer: 0
-  m_Name: Pot (2)
+  m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3929,7 +3929,7 @@ GameObject:
   - component: {fileID: 2324593867730727985}
   - component: {fileID: 7034121367086919021}
   m_Layer: 0
-  m_Name: Barrel (3)
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4092,7 +4092,7 @@ GameObject:
   - component: {fileID: 7919364043273694071}
   - component: {fileID: 6415242265328159028}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4168,7 +4168,7 @@ GameObject:
   - component: {fileID: 7823150235906810213}
   - component: {fileID: 6373111112943813414}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4219,7 +4219,7 @@ GameObject:
   - component: {fileID: 3354784006661982030}
   - component: {fileID: 8021530599500586514}
   m_Layer: 0
-  m_Name: Barrel (4)
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4338,7 +4338,7 @@ GameObject:
   - component: {fileID: 3138579754177319202}
   - component: {fileID: 3138579754177319203}
   m_Layer: 20
-  m_Name: TreeA (2)
+  m_Name: TreeA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4557,7 +4557,7 @@ GameObject:
   - component: {fileID: 3198439949743582785}
   - component: {fileID: 3198439949743582784}
   m_Layer: 20
-  m_Name: TreeA (1)
+  m_Name: TreeA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4928,7 +4928,7 @@ GameObject:
   - component: {fileID: 3766138553965263218}
   - component: {fileID: 8473706165289082926}
   m_Layer: 0
-  m_Name: Barrel (2)
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5020,7 +5020,7 @@ GameObject:
   - component: {fileID: 1507478755867549386}
   - component: {fileID: 7423034713688243710}
   m_Layer: 0
-  m_Name: Bench (2)
+  m_Name: Bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5114,7 +5114,7 @@ GameObject:
   - component: {fileID: 1140118739993223656}
   - component: {fileID: 4445977883843066283}
   m_Layer: 0
-  m_Name: TX Shadow Stone Bench S
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5478,7 +5478,7 @@ GameObject:
   - component: {fileID: 4081712926303766609}
   - component: {fileID: 8753183021095686413}
   m_Layer: 0
-  m_Name: Barrel (1)
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5702,7 +5702,7 @@ GameObject:
   - component: {fileID: 4552224270436719151}
   - component: {fileID: 4552224270436719150}
   m_Layer: 20
-  m_Name: TreeB (2)
+  m_Name: TreeB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6203,7 +6203,7 @@ GameObject:
   - component: {fileID: 3156408096499923804}
   - component: {fileID: 1887669874506058423}
   m_Layer: 0
-  m_Name: Pot (3)
+  m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6220,7 +6220,7 @@ GameObject:
   - component: {fileID: 8166327900419176224}
   - component: {fileID: 4842870798293282659}
   m_Layer: 0
-  m_Name: TX Shadow Stone Bench S
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6647,7 +6647,7 @@ GameObject:
   - component: {fileID: 3727569420480770365}
   - component: {fileID: 163666069032386774}
   m_Layer: 0
-  m_Name: Pot (1)
+  m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7232,7 +7232,7 @@ GameObject:
   - component: {fileID: 8983521068954046122}
   - component: {fileID: 2730436030608928887}
   m_Layer: 0
-  m_Name: TX Shadow Well
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7419,7 +7419,7 @@ GameObject:
   - component: {fileID: 8225378476174422423}
   - component: {fileID: 2031225343799946185}
   m_Layer: 0
-  m_Name: TX Shadow Stone Bench W
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7527,7 +7527,7 @@ GameObject:
   - component: {fileID: 6544277903327430926}
   - component: {fileID: 6544277903327430927}
   m_Layer: 20
-  m_Name: TreeB (1)
+  m_Name: TreeB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7718,7 +7718,7 @@ GameObject:
   - component: {fileID: 1499385839821256130}
   - component: {fileID: 2318892015249168257}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7961,7 +7961,7 @@ GameObject:
   - component: {fileID: 3435317188001280387}
   - component: {fileID: 1966962196940149696}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7978,7 +7978,7 @@ GameObject:
   - component: {fileID: 3336614377903508382}
   - component: {fileID: 1922674629026458077}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8329,7 +8329,7 @@ GameObject:
   - component: {fileID: 7423437251992128995}
   - component: {fileID: 7423437251992128994}
   m_Layer: 20
-  m_Name: TreeB (4)
+  m_Name: TreeB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8507,7 +8507,7 @@ GameObject:
   - component: {fileID: 7837705000766119354}
   - component: {fileID: 3249834211005220070}
   m_Layer: 0
-  m_Name: Barrel (5)
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8601,7 +8601,7 @@ GameObject:
   - component: {fileID: 2405125893791400700}
   - component: {fileID: 1549245125394604223}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9259,7 +9259,7 @@ GameObject:
   - component: {fileID: 4145296036389666460}
   - component: {fileID: 965938222640553183}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9456,7 +9456,7 @@ GameObject:
   - component: {fileID: 1449491579026926955}
   - component: {fileID: 2729789567559883904}
   m_Layer: 0
-  m_Name: Pot (1)
+  m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9656,7 +9656,7 @@ GameObject:
   - component: {fileID: 8792333369972134967}
   - component: {fileID: 8792333369972134966}
   m_Layer: 20
-  m_Name: TreeA (3)
+  m_Name: TreeA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9829,7 +9829,7 @@ GameObject:
   - component: {fileID: 6772289432623729259}
   - component: {fileID: 3320358079748532575}
   m_Layer: 0
-  m_Name: Bench (1)
+  m_Name: Bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10044,7 +10044,7 @@ GameObject:
   - component: {fileID: 5099518843048064329}
   - component: {fileID: 8405102284021755146}
   m_Layer: 0
-  m_Name: TX Shadow Stone Bench S
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10078,7 +10078,7 @@ GameObject:
   - component: {fileID: 3847806362388221887}
   - component: {fileID: 109943441768721916}
   m_Layer: 0
-  m_Name: TX Shadow Barrel
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
