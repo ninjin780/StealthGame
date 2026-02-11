@@ -5,7 +5,7 @@ public class TimerManager : MonoBehaviour
 {
     public float startTime = 0f;
     private Text timeText;
-    private static float CurrentTime { get; set; }
+    public static float CurrentTime { get; set; }
 
     void Start()
     {
