@@ -135,12 +135,16 @@ public class EnemyAI : MonoBehaviour
         Vector2 toPlayer = (player.position - transform.position);
         float dist = toPlayer.magnitude;
 
-        RaycastHit2D hit = Physics2D.Raycast(origin, toPlayer.normalized, dist, obstacleLayer | playerLayer);
+        RaycastHit2D hit = Physics2D.Raycast(
+            origin,
+            toPlayer.normalized,
+            dist,
+            obstacleLayer | playerLayer
+        );
 
         if (!hit.collider) return false;
 
-        int hitLayerBit = 1 << hit.collider.gameObject.layer;
-        return (hitLayerBit & playerLayer) != 0;
+        return ((1 << hit.collider.gameObject.layer) & playerLayer) != 0;
     }
 
     void UpdateAnimation(Vector2 dir)
