@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4431177360771303295}
   - component: {fileID: 7234395628524769467}
   m_Layer: 0
-  m_Name: Sign Right
+  m_Name: SignRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
