@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 public class TimeDisplay : MonoBehaviour
@@ -17,8 +18,7 @@ public class TimeDisplay : MonoBehaviour
     void FixedUpdate()
     {
         CurrentTime += Time.deltaTime;
-
-        if (PlayerPrefs.GetFloat("Time") == 0) PlayerPrefs.SetFloat("Time", CurrentTime);
+        
         UpdateTimerText();
     }
 

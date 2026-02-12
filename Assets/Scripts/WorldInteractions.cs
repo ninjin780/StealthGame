@@ -11,6 +11,10 @@ public class WorldInteractions : MonoBehaviour
 
     private void OnStartGame()
     {
+        if (PlayerPrefs.GetFloat("Time") <= 2)
+        {
+            PlayerPrefs.SetFloat("Time", 1300000000);
+        }
         SceneManager.LoadScene("Gameplay");
     }
 }
